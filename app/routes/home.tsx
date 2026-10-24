@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, Link } from "react-router";
 import type { Route } from "./+types/home";
 import { SHOES, getCategories, type Shoe } from "../data/shoes";
@@ -29,6 +29,15 @@ export default function Home() {
     setSelectedCategory(searchParams.get("category") || "All");
     setSearchQuery(searchParams.get("q") || "");
   }, [searchParams]);
+
+  useEffect(() => {
+    if (window.location.hash === "#catalog") {
+      const el = document.getElementById("catalog");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [categoryParam, queryParam]);
 
   const categories = getCategories();
 

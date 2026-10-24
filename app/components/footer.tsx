@@ -8,9 +8,7 @@ export function Footer() {
           {/* Brand info */}
           <div className="space-y-4 md:col-span-1">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-500 to-indigo-500 flex items-center justify-center text-white font-extrabold text-lg">
-                V
-              </div>
+              <img src="/shoe.png" alt="VShoes Logo" className="w-8 h-8 object-contain" />
               <span className="text-xl font-black tracking-tight text-white">
                 VShoes<span className="text-blue-500">.</span>
               </span>
@@ -30,22 +28,22 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/?category=Running" className="hover:text-blue-400 transition-colors">
+                <Link to="/?category=Running#catalog" className="hover:text-blue-400 transition-colors">
                   Running & Marathons
                 </Link>
               </li>
               <li>
-                <Link to="/?category=Casual" className="hover:text-blue-400 transition-colors">
+                <Link to="/?category=Casual#catalog" className="hover:text-blue-400 transition-colors">
                   Casual & Lifestyle
                 </Link>
               </li>
               <li>
-                <Link to="/?category=Outdoor" className="hover:text-blue-400 transition-colors">
+                <Link to="/?category=Outdoor#catalog" className="hover:text-blue-400 transition-colors">
                   Outdoor & Trail
                 </Link>
               </li>
               <li>
-                <Link to="/?category=Training" className="hover:text-blue-400 transition-colors">
+                <Link to="/?category=Training#catalog" className="hover:text-blue-400 transition-colors">
                   Gym & Cross-Training
                 </Link>
               </li>

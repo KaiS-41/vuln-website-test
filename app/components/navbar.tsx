@@ -12,14 +12,31 @@ export function Navbar() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-      navigate(`/?q=${encodeURIComponent(searchTerm.trim())}`);
+      navigate(`/?q=${encodeURIComponent(searchTerm.trim())}#catalog`);
+      scrollToCatalog();
     } else {
       navigate("/");
     }
   };
 
+  const scrollToCatalog = () => {
+    const el = document.getElementById("catalog");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
+      {/* Skip to Catalog Link for Accessibility */}
+      <a
+        href="#catalog"
+        onClick={scrollToCatalog}
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:font-semibold focus:rounded-xl focus:shadow-xl focus:outline-none"
+      >
+        Skip to shoe catalog
+      </a>
+
       {/* Top Banner Notice */}
       <aside aria-label="Demo notice" className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-white text-xs sm:text-sm font-medium py-1.5 px-4 text-center">
         <span>
@@ -34,9 +51,7 @@ export function Navbar() {
             {/* Logo */}
             <div className="flex items-center gap-3">
               <Link to="/" className="flex items-center gap-2 group">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-xl shadow-md group-hover:scale-105 transition-transform">
-                  V
-                </div>
+                <img src="/shoe.png" alt="VShoes Logo" className="w-10 h-10 object-contain group-hover:scale-105 transition-transform" />
                 <div className="flex flex-col">
                   <span className="text-2xl font-black tracking-tight text-gray-900 dark:text-white">
                     VShoes<span className="text-blue-600">.</span>
@@ -51,31 +66,36 @@ export function Navbar() {
             {/* Desktop Navigation Links */}
             <nav className="hidden md:flex items-center space-x-6 text-sm font-semibold text-gray-700 dark:text-gray-200">
               <Link
-                to="/"
+                to="/#catalog"
+                onClick={scrollToCatalog}
                 className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 All Shoes
               </Link>
               <Link
-                to="/?category=Running"
+                to="/?category=Running#catalog"
+                onClick={scrollToCatalog}
                 className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 Running
               </Link>
               <Link
-                to="/?category=Casual"
+                to="/?category=Casual#catalog"
+                onClick={scrollToCatalog}
                 className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 Casual
               </Link>
               <Link
-                to="/?category=Outdoor"
+                to="/?category=Outdoor#catalog"
+                onClick={scrollToCatalog}
                 className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 Outdoor
               </Link>
               <Link
-                to="/?category=Training"
+                to="/?category=Training#catalog"
+                onClick={scrollToCatalog}
                 className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 Training
@@ -207,36 +227,51 @@ export function Navbar() {
               </form>
               <div className="grid grid-cols-2 gap-2 text-sm font-semibold pt-2">
                 <Link
-                  to="/"
-                  onClick={() => setMobileMenuOpen(false)}
+                  to="/#catalog"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    scrollToCatalog();
+                  }}
                   className="p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
                 >
                   All Shoes
                 </Link>
                 <Link
-                  to="/?category=Running"
-                  onClick={() => setMobileMenuOpen(false)}
+                  to="/?category=Running#catalog"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    scrollToCatalog();
+                  }}
                   className="p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
                 >
                   Running
                 </Link>
                 <Link
-                  to="/?category=Casual"
-                  onClick={() => setMobileMenuOpen(false)}
+                  to="/?category=Casual#catalog"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    scrollToCatalog();
+                  }}
                   className="p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
                 >
                   Casual
                 </Link>
                 <Link
-                  to="/?category=Outdoor"
-                  onClick={() => setMobileMenuOpen(false)}
+                  to="/?category=Outdoor#catalog"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    scrollToCatalog();
+                  }}
                   className="p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
                 >
                   Outdoor
                 </Link>
                 <Link
-                  to="/?category=Training"
-                  onClick={() => setMobileMenuOpen(false)}
+                  to="/?category=Training#catalog"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    scrollToCatalog();
+                  }}
                   className="p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
                 >
                   Training
